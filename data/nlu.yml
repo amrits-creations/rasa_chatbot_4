@@ -105,3 +105,7 @@ nlu:
     - Tell me about [Smartphone 500](productname)
     - Product [Jacket](productname)
     - [Headphones](productname) specs
+    - What products do you have?
+    - Tell me about your products.
+    - What is in stock?
+    - Products?
