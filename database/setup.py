@@ -35,7 +35,8 @@ def setup_database():
         admin_users_data = [
             ('app_admin', 'admin123', 'Application Admin'),
             ('product_admin', 'admin123', 'Product Admin'),
-            ('order_admin', 'admin123', 'Order Admin')
+            ('order_admin', 'admin123', 'Order Admin'),
+            ('system_admin', 'admin123', 'System Admin')
         ]
 
         for username, password, role_name in admin_users_data:
@@ -144,6 +145,7 @@ def setup_database():
         print("Application Admin - Username: app_admin, Password: admin123")
         print("Product Admin - Username: product_admin, Password: admin123") 
         print("Order Admin - Username: order_admin, Password: admin123")
+        print("System Admin - Username: system_admin, password: admin123")
 
     except Exception as e:
         session.rollback()

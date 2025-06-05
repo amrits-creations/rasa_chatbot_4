@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛠️ Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <h1>🛠️ Admin Management Dashboard</h1>
+            <div class="user-info">
+                <span id="userInfo">Welcome, Admin</span>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-container">
+            <div class="nav-tabs" id="navTabs">
+                <!-- Navigation tabs will be dynamically generated -->
+            </div>
+
+            <div class="content-area">
+                <!-- Products Section -->
+                <div id="products-section" class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">📦 Product Management</h2>
+                    </div>
+
+                    <div class="form-container">
+                        <h3>➕ Create New Product</h3>
+                        <form id="createProductForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="productName">Product Name:</label>
+                                    <input type="text" id="productName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="initialStock">Initial Stock:</label>
+                                    <input type="number" id="initialStock" min="0" value="0">
+                                </div>
+                                <div class="form-group">
+                                    <label for="minOrderQty">Minimum Order Quantity:</label>
+                                    <input type="number" id="minOrderQty" min="1" value="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="quantityType">Quantity Type:</label>
+                                    <select id="quantityType">
+                                        <option value="pcs">Pieces</option>
+                                        <option value="kg">Kilograms</option>
+                                        <option value="ltr">Liters</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Create Product</button>
+                        </form>
+                    </div>
+
+                    <div class="table-container">
+                        <table id="productsTable" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Product Name</th>
+                                    <th>Current Stock</th>
+                                    <th>MOQ</th>
+                                    <th>Type</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody">
+                                <!-- Products will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Orders Section -->
+                <div id="orders-section" class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">📋 Order Management</h2>
+                    </div>
+
+                    <div class="form-container">
+                        <h3>➕ Create New Order</h3>
+                        <form id="createOrderForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="orderUserId">User ID:</label>
+                                    <input type="number" id="orderUserId" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="orderProductId">Product ID:</label>
+                                    <input type="number" id="orderProductId" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="orderStatus">Status:</label>
+                                    <select id="orderStatus">
+                                        <option value="pending">Pending</option>
+                                        <option value="processing">Processing</option>
+                                        <option value="shipped">Shipped</option>
+                                        <option value="delivered">Delivered</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="estimatedDelivery">Estimated Delivery:</label>
+                                    <input type="date" id="estimatedDelivery">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Create Order</button>
+                        </form>
+                    </div>
+
+                    <div class="table-container">
+                        <table id="ordersTable" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Username</th>
+                                    <th>Product</th>
+                                    <th>Status</th>
+                                    <th>Estimated Delivery</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                                <!-- Orders will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Users Section -->
+                <div id="users-section" class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">👥 User Management</h2>
+                    </div>
+
+                    <div class="form-container">
+                        <h3>➕ Create New User</h3>
+                        <form id="createUserForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="newUsername">Username:</label>
+                                    <input type="text" id="newUsername" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">Password:</label>
+                                    <input type="password" id="newPassword" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="newUserRole">Role:</label>
+                                    <select id="newUserRole" required>
+                                        <option value="">Select Role</option>
+                                        <option value="End User">End User</option>
+                                        <option value="Order Admin">Order Admin</option>
+                                        <option value="Product Admin">Product Admin</option>
+                                        <option value="Application Admin">Application Admin</option>
+                                        <option value="System Admin">System Admin</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Create User</button>
+                        </form>
+                    </div>
+
+                    <div class="table-container">
+                        <table id="usersTable" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>Username</th>
+                                    <th>Role</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <!-- Users will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div id="faq-section" class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">❓ FAQ Management</h2>
+                    </div>
+
+                    <div class="form-container">
+                        <h3>➕ Create New FAQ</h3>
+                        <form id="createFaqForm">
+                            <div class="form-group">
+                                <label for="faqQuestion">Question:</label>
+                                <input type="text" id="faqQuestion" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="faqAnswer">Answer:</label>
+                                <textarea id="faqAnswer" rows="4" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Create FAQ</button>
+                        </form>
+                    </div>
+
+                    <div class="table-container">
+                        <table id="faqTable" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>FAQ ID</th>
+                                    <th>Question</th>
+                                    <th>Answer</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="faqTableBody">
+                                <!-- FAQs will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Unanswered Questions Section -->
+                <div id="unanswered-section" class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">❔ Unanswered Questions</h2>
+                    </div>
+
+                    <div class="table-container">
+                        <table id="unansweredTable" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Question ID</th>
+                                    <th>Question</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="unansweredTableBody">
+                                <!-- Unanswered questions will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Roles Section -->
+                <div id="roles-section" class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">🔐 Role Management</h2>
+                    </div>
+
+                    <div class="form-container">
+                        <h3>➕ Create New Role</h3>
+                        <form id="createRoleForm">
+                            <div class="form-group">
+                                <label for="roleName">Role Name:</label>
+                                <input type="text" id="roleName" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Create Role</button>
+                        </form>
+                    </div>
+
+                    <div class="table-container">
+                        <table id="rolesTable" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Role ID</th>
+                                    <th>Role Name</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rolesTableBody">
+                                <!-- Roles will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Response Messages -->
+        <div id="responseArea" class="response-area" style="display: none;">
+            <div id="responseText"></div>
+        </div>
+    </div>
+
+    <!-- Update Modal -->
+    <div id="updateModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3 id="modalTitle">Update Item</h3>
+            <form id="updateForm">
+                <div id="modalFields">
+                    <!-- Dynamic fields will be inserted here -->
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-success">Update</button>
+                    <button type="button" id="cancelUpdate" class="btn btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
