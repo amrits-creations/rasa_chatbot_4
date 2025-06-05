@@ -1,0 +1,27 @@
+version: "3.1"
+stories:
+- story: greet and ask FAQ
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq
+  - action: utter_faq
+
+- story: order status with number
+  steps:
+  - intent: orderstatus
+    entities:
+    - ordernumber: "12345"
+  - slot_was_set:
+    - ordernumber: "12345"
+  - action: action_fetch_order_status
+
+- story: order status without number, ask for number
+  steps:
+  - intent: orderstatus
+  - action: utter_ask_ordernumber
+
+- story: say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye

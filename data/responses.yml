@@ -1,0 +1,10 @@
+version: "3.1"
+responses:
+  utter_faq/store_hours:
+    - text: "Our store is open 9 AM–9 PM Monday through Saturday, and 10 AM–6 PM on Sundays."
+
+  utter_faq/return_policy:
+    - text: "You can return any item within 30 days for a full refund. Just visit our Returns page or contact support."
+
+  utter_faq/contact_info:
+    - text: "You can reach us at support@example.com or call 1-800-123-4567. We're here to help!"

@@ -1,0 +1,59 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# Rasa specific
+models/*.tar.gz
+models/*.gz
+*.db
+*.sqlite
+*.sqlite3
+
+# Database credentials and environment
+.env
+.env.local
+.env.production
+database.env
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+temp/
+tmp/
+
+
+# Rasa specific cache and temporary files
+.rasa/
+.rasa/cache/
+*.tmp
+rasa_core.log
+debug.log
+
+# Rasa models (optional - you might want to commit some models)
+# models/

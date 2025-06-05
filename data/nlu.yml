@@ -1,0 +1,107 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hi
+    - hello
+    - hey there
+    - good morning
+    - good afternoon
+    - hey
+    - hi there
+    - howdy
+    - greetings
+    - what's up
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+    - talk to you soon
+    - catch you later
+    - fare thee well
+    - I'm off
+    - see ya
+    - have a good one
+    - take care
+
+- intent: faq/store_hours
+  examples: |
+    - What time do you open?
+    - When do you close today?
+    - What are your store hours?
+    - Are you open on weekends?
+    - Tell me your opening hours.
+    - Do you open early on weekdays?
+    - What time does the store close on Friday?
+    - Can I visit on Sunday?
+    - What time do you close on holidays?
+    - When does your store open tomorrow?
+
+- intent: faq/return_policy
+  examples: |
+    - What is your return policy?
+    - How do I return an item?
+    - Can I get a refund?
+    - What's your refund process?
+    - How many days do I have to return?
+    - Do you accept returns after 30 days?
+    - Explain your returns procedure.
+    - Is there a restocking fee?
+    - How do I send back a product?
+    - What are the return shipping costs?
+
+- intent: faq/contact_info
+  examples: |
+    - How can I contact customer support?
+    - What's your phone number?
+    - Do you have an email address?
+    - I need to talk to an agent.
+    - How do I reach support?
+    - Can I chat with someone?
+    - Where is your headquarters?
+    - Give me your contact details.
+    - Do you have a live chat?
+    - Who do I call for help?
+
+- intent: orderstatus
+  examples: |
+    - What's the status of order [12345](ordernumber)?
+    - Where is my order [98765](ordernumber)?
+    - Can you update me on order [12345](ordernumber)?
+    - Check order [55555](ordernumber) for me.
+    - Order [12345](ordernumber)
+    - [12345](ordernumber)
+    - order [20254](ordernumber)
+    - Status of order [00001](ordernumber) please.
+    - What's happening with order [23456](ordernumber)?
+    - Has order [44444](ordernumber) shipped yet?
+    - Tell me about order [32100](ordernumber).
+    - Where is order [88888](ordernumber)?
+    - [99999](ordernumber) status
+    - My order is [12346](ordernumber)
+    - Check [77777](ordernumber)
+    - Order number [11111](ordernumber)
+
+- intent: productinfo
+  examples: |
+    - Tell me about [jacket](productname)
+    - What are the specs of [headphones](productname)?
+    - Info about [Shoes](productname)
+    - Info about [socks](productname)
+    - Details on [Laptop 2000](productname)
+    - I want to know about [iPad](productname)
+    - Tell me about the [Jacket](productname)
+    - What about [Headphones](productname)?
+    - Product info for [Light jacket](productname)
+    - Info on [Loudspeakers](productname)
+    - Can you describe [Tablet](productname)?
+    - I need details for [jeans](productname)
+    - [Jacket](productname) information
+    - About [Headphones](productname)
+    - [Shoes](productname) details
+    - What is [laptop 2000](productname)?
+    - Tell me about [Smartphone 500](productname)
+    - Product [Jacket](productname)
+    - [Headphones](productname) specs
