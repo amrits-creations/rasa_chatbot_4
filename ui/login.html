@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔐 Chat Login - Customer Support</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>🔐 Customer Support Login</h1>
+                <p>Please login to access the chat support system</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" required autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required autocomplete="current-password">
+                </div>
+
+                <button type="submit" class="login-btn">
+                    <span id="loginBtnText">Access Chat Support</span>
+                    <span id="loginSpinner" class="spinner" style="display: none;"></span>
+                </button>
+            </form>
+
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+            <div class="demo-info">
+                <p><strong>Demo Credentials:</strong></p>
+                <p>Username: <code>testuser</code></p>
+                <p>Password: <code>test123</code></p>
+                <small>Note: Only End Users can access the chat interface</small>
+            </div>
+
+            <div class="admin-link">
+                <p><a href="../admin_ui/login.html">🛠️ Admin Panel Access</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

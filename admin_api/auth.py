@@ -17,14 +17,29 @@ except ImportError:
     UnansweredQuestion = None
 
 class AdminAuth:
-    """Simple authentication for admin users"""
+    """Enhanced authentication for both admin and regular users"""
 
     def hash_password(self, password):
         """Hash password using SHA-256"""
         return hashlib.sha256(password.encode()).hexdigest()
 
     def verify_admin_user(self, username, password):
-        """Check if user credentials are valid"""
+        """Check if user credentials are valid for admin access"""
+        return self.verify_user(username, password, admin_only=True)
+
+    def verify_user(self, username, password, admin_only=False, allowed_roles=None):
+        """
+        Check if user credentials are valid
+        
+        Args:
+            username: User's username
+            password: User's password
+            admin_only: If True, only allow admin roles (System Admin, Application Admin, etc.)
+            allowed_roles: List of specific roles to allow (overrides admin_only)
+        
+        Returns:
+            User info dict if valid, None if invalid
+        """
         if not create_session or not User or not Role:
             return None
 
@@ -41,10 +56,17 @@ class AdminAuth:
             if user.password != hashed_input:
                 return None
 
-            # Check if user has admin privileges
-            admin_roles = ['System Admin', 'Application Admin', 'Product Admin', 'Order Admin']
-            if user.role.role_name not in admin_roles:
-                return None
+            # Check role permissions
+            if allowed_roles:
+                # Use specific allowed roles
+                if user.role.role_name not in allowed_roles:
+                    return None
+            elif admin_only:
+                # Admin-only check (existing behavior)
+                admin_roles = ['System Admin', 'Application Admin', 'Product Admin', 'Order Admin']
+                if user.role.role_name not in admin_roles:
+                    return None
+            # If neither admin_only nor allowed_roles specified, allow any valid user
 
             return {
                 'user_id': user.user_id,

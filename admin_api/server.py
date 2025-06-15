@@ -421,5 +421,25 @@ def delete_role(role_id):
     result = role_manager.delete(role_id)
     return jsonify(result)
 
+@app.route('/api/user/login', methods=['POST'])
+def user_login():
+    """Regular user login endpoint"""
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+    
+    if not username or not password:
+        return jsonify({'success': False, 'message': 'Username and password required'}), 400
+    
+    # Use existing auth but check for End User role
+    user_info = auth.verify_user(username, password, allowed_roles=['End User'])
+    
+    if user_info:
+        session_token = f"user_{username}_{hash(password)}_{len(active_sessions)}"
+        active_sessions[session_token] = user_info
+        return jsonify({'success': True, 'token': session_token, 'user': user_info})
+    else:
+        return jsonify({'success': False, 'message': 'Invalid credentials'}), 401
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💬 Customer Support Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Main Chat Area -->
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="header-content">
+                    <h1>💬 Customer Support Chat</h1>
+                    <p>Ask me about orders, products, store hours, returns, or contact info!</p>
+                </div>
+                <div class="user-controls">
+                    <span id="userDisplay" class="user-display">Welcome, User</span>
+                    <button id="logoutBtn" class="logout-btn">Logout</button>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <div class="message assistant">
+                    <div class="message-content">
+                        Hello! How can I help you today? I can assist with order status, product info, store hours, returns, and contact information.
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <form id="chatForm" class="chat-input-form">
+                    <input
+                        type="text"
+                        id="messageInput"
+                        placeholder="Type your message here..."
+                        required
+                        autocomplete="off"
+                    >
+                    <button type="submit" id="sendButton">Send</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <h3>🔗 Server Status</h3>
+                <div id="serverStatus" class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Checking...</span>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="sidebar-section">
+                <button id="clearChatBtn" class="clear-button">
+                    🗑️ Clear Chat
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -2,62 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💬 Customer Support Chat</title>
-    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="refresh" content="0; url=login.html">
+    <title>Redirecting to Login...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .redirect-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        a {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Main Chat Area -->
-        <div class="chat-container">
-            <div class="chat-header">
-                <h1>💬 Customer Support Chat</h1>
-                <p>Ask me about orders, products, store hours, returns, or contact info!</p>
-            </div>
-            
-            <div class="chat-messages" id="chatMessages">
-                <div class="message assistant">
-                    <div class="message-content">
-                        Hello! How can I help you today? I can assist with order status, product info, store hours, returns, and contact information.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="chat-input-container">
-                <form id="chatForm" class="chat-input-form">
-                    <input 
-                        type="text" 
-                        id="messageInput" 
-                        placeholder="Type your message here..." 
-                        required
-                        autocomplete="off"
-                    >
-                    <button type="submit" id="sendButton">Send</button>
-                </form>
-            </div>
-        </div>
-        
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="sidebar-section">
-                <h3>🔗 Server Status</h3>
-                <div id="serverStatus" class="status-indicator">
-                    <span class="status-dot"></span>
-                    <span class="status-text">Checking...</span>
-                </div>
-            </div>
-            
-            <hr>
-            
-            <div class="sidebar-section">
-                <button id="clearChatBtn" class="clear-button">
-                    🗑️ Clear Chat
-                </button>
-            </div>
-        </div>
+    <div class="redirect-box">
+        <h1>🔐 Authentication Required</h1>
+        <p>Redirecting to login page...</p>
+        <p>If you are not redirected automatically, <a href="login.html">click here to login</a>.</p>
     </div>
-    
-    <script src="script.js"></script>
 </body>
 </html>
-
